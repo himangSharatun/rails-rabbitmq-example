@@ -17,8 +17,8 @@ class UserController < ApplicationController
   def update_using_csv(file)
     decoded_file = Base64.decode64(file)
     file = decoded_file.encode('utf-8', invalid: :replace, undef: :replace, replace: '')
-    CSV.parse(file, headers: true).each do |row|
-      update_balance(row["username"], row["amount"])
+    CSV.parse(file, headers: true).each_slice(100) do |mutations|
+      ::MassUpdatePublisher.new(mutations).publish
     end
   end
 

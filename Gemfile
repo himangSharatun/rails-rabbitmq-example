@@ -60,9 +60,12 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'active_model_serializers', '0.10.4'
 gem 'activerecord-import'
+gem 'bunny', '>= 2.9.2'
 gem 'dotenv-rails', '~> 2.5'
 gem 'jwt'
+gem 'logstash-logger'
 gem 'rails-i18n', '~> 5.1'
+gem 'sneakers'
 gem 'state_machine'
 gem 'rest-client'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
